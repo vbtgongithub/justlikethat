@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE REAL WEBSITE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #myButton {
+            background-color: #4caf50;
+            color: white;
+            position: relative; /* Static position */
+        }
+
+        .myClass {
+            background-color: #f44336;
+            color: white;
+            position: absolute; /* Allows the button to move */
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Girl friend?❤️❤️</h1>
+    <button id="myButton">YES</button>
+    <button class="myClass" id="noButton">NO</button>
+
+    <script>
+        // "YES" button: Replace current page with a new message
+        const yesButton = document.getElementById('myButton');
+        yesButton.addEventListener('click', () => {
+            // Change the content of the current page
+            document.body.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: white; font-size: 24px; color: black;">
+                    That's how u get a girlfriend.😁😁
+                </div>
+            `;
+        });
+
+        // "NO" button: Move to a random position
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('click', () => {
+            // Get the window dimensions
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Generate random positions within the screen bounds
+            const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
+
+            // Apply the new positions to the button
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
